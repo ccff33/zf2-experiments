@@ -2,7 +2,8 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.2.*",
-        "zf-commons/zfc-twig": "1.1.*"
+        "zf-commons/zfc-twig": "1.1.*",
+        "doctrine/doctrine-orm-module": "0.7.*"
     },
     "require-dev": {
         "zendframework/zftool": "dev-master",

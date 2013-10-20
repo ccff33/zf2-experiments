@@ -7,6 +7,8 @@ $modules = array(
     'App',
     'DataLayer',
     'ZfcTwig',
+    'DoctrineModule',
+    'DoctrineORMModule',
 );
 
 if ($env == 'development') {

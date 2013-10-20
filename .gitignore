@@ -1,0 +1,5 @@
+nbproject
+data/cache
+vendor
+composer.phar
+config/local.php

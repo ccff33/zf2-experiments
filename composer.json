@@ -1,6 +1,14 @@
 {
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zendframework": "2.2.*"
+        "zendframework/zendframework": "2.2.*",
+        "zf-commons/zfc-twig": "1.1.*"
+    },
+    "require-dev": {
+        "zendframework/zftool": "dev-master",
+        "zendframework/zend-developer-tools": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Recipe": "module/Recipe/src/" }
     }
 }

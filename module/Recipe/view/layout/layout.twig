@@ -1,0 +1,57 @@
+{{ doctype() }}
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        {{ headTitle('ZF2 ' ~ translate('Experiment')).setSeparator(' - ').setAutoEscape(false) | raw }}
+
+        {{ headMeta()
+            .appendName('viewport', 'width=device-width, initial-scale=1.0')
+            .appendHttpEquiv('X-UA-Compatible', 'IE=edge') | raw
+        }}
+
+        <!-- Le styles -->
+        {{ headLink({'rel' : 'shortcut icon', 'type' : 'image/vnd.microsoft.icon', 'href' : basePath() ~ '/img/favicon.ico'})
+                        .prependStylesheet(basePath() ~ '/css/style.css')
+                        .prependStylesheet(basePath() ~ '/css/bootstrap-theme.min.css')
+                        .prependStylesheet(basePath() ~ '/css/bootstrap.min.css') | raw }}
+
+        <!-- Scripts -->
+        {{ headScript()
+            .prependFile(basePath() ~ '/js/bootstrap.min.js')
+            .prependFile(basePath() ~ '/js/jquery.min.js')
+            .prependFile(basePath() ~ '/js/respond.min.js', 'text/javascript', {'conditional' : 'lt IE 9'})
+            .prependFile(basePath() ~ '/js/html5shiv.js',   'text/javascript', {'conditional' : 'lt IE 9'}) | raw
+        }}
+
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ url('home') }}"><img src="{{ basePath('img/zf2-logo.png') }}" alt="Zend Framework 2"/>&nbsp;{{ translate('Skeleton Application') }}</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{ url('home') }}">{{ translate('Home') }}</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div class="container">
+            {% block content %}
+                {{ content | raw }}
+            {% endblock %}
+            <hr>
+            <footer>
+                <p>&copy; 2005 - {{ "now" | date('Y') }} by Zend Technologies Ltd. {{ translate('All rights reserved.') }}</p>
+            </footer>
+        </div> <!-- /container -->
+        {{ inlineScript() }}
+    </body>
+</html>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Recipe;
+namespace App;
 
 return array(
     'router' => array(
@@ -11,8 +11,8 @@ return array(
                 'options' => array(
                     'route'    => '/app',
                     'defaults' => array(
-                        '__NAMESPACE__' => 'Recipe\Controller',
-                        'controller'    => 'Recipe\Controller\Home',
+                        '__NAMESPACE__' => 'App\Controller',
+                        'controller'    => 'App\Controller\Home',
                         'action'        => 'index',
                     ),
                 ),
@@ -45,7 +45,7 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Recipe\Controller\Home' => 'Recipe\Controller\HomeController'
+            'App\Controller\Home' => 'App\Controller\HomeController'
         ),
     ),
     'view_manager' => array(

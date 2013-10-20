@@ -9,6 +9,9 @@
         "zendframework/zend-developer-tools": "dev-master"
     },
     "autoload": {
-        "psr-0": { "Recipe": "module/Recipe/src/" }
+        "psr-0": {
+            "App": "module/App/src/",
+            "DataLayer": "module/DataLayer/src/"
+        }
     }
 }

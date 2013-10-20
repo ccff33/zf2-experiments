@@ -4,8 +4,9 @@ $env = \getenv('APP_ENV') ?: 'development';
 
 $modules = array(
     'Application',
-    'Recipe',
-    'ZfcTwig'
+    'App',
+    'DataLayer',
+    'ZfcTwig',
 );
 
 if ($env == 'development') {

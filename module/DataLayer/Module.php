@@ -1,6 +1,6 @@
 <?php
 
-namespace Recipe;
+namespace DataLayer;
 
 class Module {
 
@@ -9,10 +9,6 @@ class Module {
     }
 
     public function getAutoloaderConfig() {
-        return array();
-    }
-    
-    public function getServiceConfiguration() {
         return array();
     }
 

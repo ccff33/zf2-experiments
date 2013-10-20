@@ -1,6 +1,6 @@
 <?php
 
-namespace Recipe\Controller;
+namespace App\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;

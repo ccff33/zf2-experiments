@@ -2,6 +2,8 @@
 
 namespace DataLayer\Repository;
 
-class IngredientRepository {
+use Doctrine\ORM\EntityRepository;
+
+class IngredientRepository extends EntityRepository {
     
 }

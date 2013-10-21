@@ -1,0 +1,10 @@
+{% extends "layout/layout.twig" %}
+
+{% block content %}
+{% do form.setAttribute('action', url('app/default', {'action': 'add', 'controller': 'home'})) %}
+{% do form.prepare() %}
+ 
+{{ form().openTag(form) | raw }}
+{{ formCollection(form) | raw }}
+{{ form().closeTag() | raw }}
+{% endblock %}

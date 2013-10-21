@@ -23,6 +23,7 @@ class Module {
                 'dl.ingredient_service' => function ($sm) {
         	       $service = new Service\IngredientServiceDoctrineImpl();
         	       $service->setRepository($sm->get('dl.ingredient_repository'));
+        	       $service->setEntityManager($sm->get('doctrine.entitymanager.orm_default'));
         	       return $service;
                 }
             )

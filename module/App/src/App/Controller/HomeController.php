@@ -8,7 +8,9 @@ use Zend\View\Model\ViewModel;
 class HomeController extends AbstractActionController {
 
     public function indexAction() {
-        return new ViewModel();
+        $service = $this->getServiceLocator()->get('dl.ingredient_service');
+        $entries = $service->fetchAll();
+        return new ViewModel(array('entries' => $entries));
     }
 
 }

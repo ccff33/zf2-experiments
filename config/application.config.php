@@ -9,6 +9,7 @@ $modules = array(
     'ZfcTwig',
     'DoctrineModule',
     'DoctrineORMModule',
+    'ZfcRbac',
 );
 
 if ($env == 'development') {

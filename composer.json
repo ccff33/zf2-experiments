@@ -5,7 +5,8 @@
         "zf-commons/zfc-twig": "1.1.*",
         "doctrine/doctrine-orm-module": "0.7.*",
         "doctrine/migrations": "dev-master",
-        "symfony/yaml": "dev-master"
+        "symfony/yaml": "dev-master",
+        "zf-commons/zfc-rbac": "dev-master"
     },
     "require-dev": {
         "zendframework/zftool": "dev-master",

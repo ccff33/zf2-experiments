@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "c173dc02bc6b6950449ced6fc41417da",
+    "hash": "1dc4928458e9c9dcd01109c7f38c4a0c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1023,6 +1023,49 @@
             "time": "2013-08-26 15:09:04"
         },
         {
+            "name": "zf-commons/zfc-rbac",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ZF-Commons/ZfcRbac.git",
+                "reference": "cdcaae0c77f8d5df3093db621bf05fdb31ac2b68"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ZF-Commons/ZfcRbac/zipball/cdcaae0c77f8d5df3093db621bf05fdb31ac2b68",
+                "reference": "cdcaae0c77f8d5df3093db621bf05fdb31ac2b68",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-mvc": ">=2.1",
+                "zendframework/zend-permissions-rbac": ">=2.1",
+                "zendframework/zend-servicemanager": ">=2.1",
+                "zendframework/zend-view": ">=2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ZfcRbac\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Kyle Spraggs",
+                    "email": "theman@spiffyjr.me",
+                    "homepage": "http://www.spiffyjr.me/"
+                }
+            ],
+            "description": "Zend Framework 2 Module that provides a layer of features of Zend\\Permissions\\Rbac",
+            "homepage": "http://www.github.com/ZF-Commons/ZfcRbac/",
+            "keywords": [
+                "module",
+                "zf2"
+            ],
+            "time": "2013-10-16 14:49:44"
+        },
+        {
             "name": "zf-commons/zfc-twig",
             "version": "1.1.5",
             "source": {
@@ -1182,6 +1225,59 @@
                 "zf2"
             ],
             "time": "2013-09-06 17:30:16"
+        },
+        {
+            "name": "zf-commons/zfc-base",
+            "version": "v0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ZF-Commons/ZfcBase.git",
+                "reference": "fc68a49b58ba68584a9a4c44a1ca9df12b30d1bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ZF-Commons/ZfcBase/zipball/fc68a49b58ba68584a9a4c44a1ca9df12b30d1bf",
+                "reference": "fc68a49b58ba68584a9a4c44a1ca9df12b30d1bf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-db": "~2.1",
+                "zendframework/zend-eventmanager": "~2.1",
+                "zendframework/zend-loader": "~2.1",
+                "zendframework/zend-modulemanager": "~2.1",
+                "zendframework/zend-mvc": "~2.1",
+                "zendframework/zend-servicemanager": "~2.1",
+                "zendframework/zend-stdlib": "~2.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ZfcBase": "src/"
+                },
+                "classmap": [
+                    "./Module.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Kyle Spraggs",
+                    "email": "theman@spiffyjr.me",
+                    "homepage": "http://www.spiffyjr.me/"
+                },
+                {
+                    "name": "Evan Coury",
+                    "email": "me@evancoury.com",
+                    "homepage": "http://blog.evan.pro/"
+                }
+            ],
+            "description": "A set of genetic (abstract) classes which are commonly used across multiple modules.",
+            "homepage": "https://github.com/ZF-Commons/ZfcBase",
+            "keywords": [
+                "zf2"
+            ],
+            "time": "2013-05-02 12:33:49"
         }
     ],
     "aliases": [
@@ -1191,6 +1287,7 @@
     "stability-flags": {
         "doctrine/migrations": 20,
         "symfony/yaml": 20,
+        "zf-commons/zfc-rbac": 20,
         "zendframework/zftool": 20,
         "zendframework/zend-developer-tools": 20
     },

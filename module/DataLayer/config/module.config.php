@@ -22,9 +22,13 @@ return array(
                 'identity_class' => 'DataLayer\Entity\User',
                 'identity_property' => 'username',
                 'credential_property' => 'password',
-                'credential_callable' => function(\DataLayer\Entity\User $user, $passwordGiven) {
-                    return true;
-                },
+                // ugly and hardcodded
+                // need a way to to use service manager here
+            '   credential_callable' => function ($user, $password) {
+                    $bcrypt = new Bcrypt();
+                    $bcrypt->setSalt($user->getSalt());
+                    return $bcrypt->verify($password, $user->getPassword());
+                }
             ),
         ),
     ),

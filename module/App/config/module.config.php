@@ -46,7 +46,8 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'App\Controller\Home' => 'App\Controller\HomeController',
-            'App\Controller\Auth' => 'App\Controller\AuthController'
+            'App\Controller\Auth' => 'App\Controller\AuthController',
+            'App\Controller\User' => 'App\Controller\UserController'
         ),
     ),
     'view_manager' => array(

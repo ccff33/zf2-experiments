@@ -1,0 +1,10 @@
+{% extends "layout/layout.twig" %}
+
+{% block content %}
+{% do form.setAttribute('action', url('app/default', {'action': 'perform-registration', 'controller': 'user'})) %}
+{% do form.prepare() %}
+ 
+{{ form().openTag(form) | raw }}
+{{ formCollection(form) | raw }}
+{{ form().closeTag() | raw }}
+{% endblock %}

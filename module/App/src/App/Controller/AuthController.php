@@ -38,4 +38,15 @@ class AuthController extends AbstractActionController {
         
         return $this->redirect()->toRoute('app/default', array('controller' => 'auth', 'action' => 'login'));
     }
+    
+    public function logoutAction() {
+        $auth = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
+        
+        if ($auth->hasIdentity()) {
+            $identity = $auth->getIdentity();
+        }
+        
+        $auth->clearIdentity();
+        return $this->redirect()->toRoute('app/default', array());
+    }
 }

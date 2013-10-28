@@ -54,6 +54,13 @@ class Role extends ZfRole {
      * )
      */
     protected $permission;
+    
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="DataLayer\Entity\User", mappedBy="roles")
+     */
+    protected $users;
 
     /**
      * Constructor
@@ -148,4 +155,38 @@ class Role extends ZfRole {
         return $this->permission;
     }
 
+
+    /**
+     * Add users
+     *
+     * @param \DataLayer\Entity\User $users
+     * @return Role
+     */
+    public function addUser(\DataLayer\Entity\User $users) {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \DataLayer\Entity\User $users
+     */
+    public function removeUser(\DataLayer\Entity\User $users) {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers() {
+        return $this->users;
+    }
+    
+    public function __toString() {
+        return $this->getName();
+    }
 }

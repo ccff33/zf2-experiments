@@ -15,6 +15,17 @@ return array(
                     __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
                 )
             )
-        )
+        ),
+        'authentication' => array(
+            'orm_default' => array(
+                'object_manager' => 'Doctrine\ORM\EntityManager',
+                'identity_class' => 'DataLayer\Entity\User',
+                'identity_property' => 'username',
+                'credential_property' => 'password',
+                'credential_callable' => function(\DataLayer\Entity\User $user, $passwordGiven) {
+                    return true;
+                },
+            ),
+        ),
     ),
 );

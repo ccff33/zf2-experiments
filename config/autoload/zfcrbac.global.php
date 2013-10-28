@@ -39,15 +39,15 @@ return array(
                 )
             ),
         ),
-        'identity_provider' => 'standard_identity'
+        'identity_provider' => 'Zend\Authentication\AuthenticationService'
     ),
-    'service_manager' => array(
-        'factories' => array(
-            'standard_identity' => function ($sm) {
-                $roles = array('guest');
-                $identity = new \ZfcRbac\Identity\StandardIdentity($roles);
-                return $identity;
-            },
-        )
-    ),
+//     'service_manager' => array(
+//         'factories' => array(
+//             'standard_identity' => function ($sm) {
+//                 $roles = array('guest');
+//                 $identity = new \ZfcRbac\Identity\StandardIdentity($roles);
+//                 return $identity;
+//             },
+//         )
+//     ),
 );

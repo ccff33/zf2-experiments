@@ -12,5 +12,18 @@
  */
 
 return array(
-    // ...
+        'doctrine' => array(
+                'authentication' => array(
+                    'orm_default' => array(
+                        'object_manager' => 'Doctrine\ORM\EntityManager',
+                        'identity_class' => 'DataLayer\Entity\User',
+                        'identity_property' => 'username',
+                        'credential_property' => 'password',
+                        'credential_callable' => function(\DataLayer\Entity\User $user, $passwordGiven) {
+                            return true;
+                            //return my_awesome_check_test($user->getPassword(), $passwordGiven);
+                        },
+                    ),
+                ),
+        ),
 );

@@ -25,7 +25,10 @@ class Module {
                     $service->setRepository($sm->get('dl.ingredient_repository'));
                     $service->setEntityManager($sm->get('doctrine.entitymanager.orm_default'));
                     return $service;
-                }
+                },
+                'Zend\Authentication\AuthenticationService' => function($serviceManager) {
+                    return $serviceManager->get('doctrine.authenticationservice.orm_default');
+                }     
             )
         );
     }

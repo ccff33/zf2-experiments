@@ -2,6 +2,7 @@
 
 namespace DataLayer;
 
+use Zend\Authentication\AuthenticationService;
 class Module {
 
     public function getConfig() {
@@ -28,16 +29,23 @@ class Module {
                     $service->setRepository($em->getRepository('DataLayer\Entity\User'));
                     $service->setEntityManager($em);
                     $service->setSaltProvider($sm->get('dl.salt_provider'));
-                    $service->setHashService($sm->get('dl.hash_service'));
+                    $service->setPasswordService($sm->get('dl.password_service'));
                     return $service;
                 },
-                'Zend\Authentication\AuthenticationService' => function($serviceManager) {
-                    return $serviceManager->get('doctrine.authenticationservice.orm_default');
+                'dl.auth_adapter' => function ($sm) {
+                    $service = new Authentication\Adapter();
+                    $service->setUserService($sm->get('dl.user_service'));
+                    return $service;
+                },
+                'dl.auth_service' => function ($sm) {
+                    $service = new AuthenticationService();
+                    $service->setAdapter($sm->get('dl.auth_adapter'));
+                    return $service;
                 },
                 'dl.salt_provider' => function ($sm) {
                     return new Service\BasicSaltProviderService();
                 },
-                'dl.hash_service' => function ($sm) {
+                'dl.password_service' => function ($sm) {
                     return new \Zend\Crypt\Password\Bcrypt();
                 } 
             ),

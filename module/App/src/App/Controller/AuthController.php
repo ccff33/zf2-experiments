@@ -25,8 +25,8 @@ class AuthController extends AbstractActionController {
             $auth = $this->getServiceLocator()->get('Zend\Authentication\AuthenticationService');
             $adapter = $auth->getAdapter();
                 
-            $adapter->setIdentityValue($username);
-            $adapter->setCredentialValue($password);
+            $adapter->setIdentity($username);
+            $adapter->setCredential($password);
             $authResult = $auth->authenticate();
             if ($authResult->isValid()) {
                 $identity = $authResult->getIdentity();

@@ -41,6 +41,7 @@ return array(
         ),
         'aliases' => array(
             'translator' => 'MvcTranslator',
+            'Zend\Authentication\AuthenticationService' => 'dl.auth_service'
         ),
     ),
     'controllers' => array(

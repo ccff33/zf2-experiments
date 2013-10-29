@@ -39,7 +39,7 @@ return array(
                 )
             ),
         ),
-        'identity_provider' => 'Zend\Authentication\AuthenticationService'
+        'identity_provider' => 'dl.auth_service'
     ),
 //     'service_manager' => array(
 //         'factories' => array(

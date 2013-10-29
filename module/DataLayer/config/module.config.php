@@ -2,6 +2,7 @@
 
 namespace DataLayer;
 
+use Zend\Crypt\Password\Bcrypt;
 return array(
     'doctrine' => array(
         'driver' => array(
@@ -15,21 +16,21 @@ return array(
                     __NAMESPACE__ . '\Entity' => __NAMESPACE__ . '_driver'
                 )
             )
-        ),
-        'authentication' => array(
-            'orm_default' => array(
-                'object_manager' => 'Doctrine\ORM\EntityManager',
-                'identity_class' => 'DataLayer\Entity\User',
-                'identity_property' => 'username',
-                'credential_property' => 'password',
-                // ugly and hardcodded
-                // need a way to to use service manager here
-            '   credential_callable' => function ($user, $password) {
-                    $bcrypt = new Bcrypt();
-                    $bcrypt->setSalt($user->getSalt());
-                    return $bcrypt->verify($password, $user->getPassword());
-                }
-            ),
-        ),
+         ),
+//         'authentication' => array(
+//             'orm_default' => array(
+//                 'object_manager' => 'Doctrine\ORM\EntityManager',
+//                 'identity_class' => 'DataLayer\Entity\User',
+//                 'identity_property' => 'username',
+//                 'credential_property' => 'password',
+//                 // ugly and hardcodded
+//                 // need a way to to use service manager here
+//             '   credential_callable' => function ($user, $password) {
+//                     $bcrypt = new Bcrypt();
+//                     $bcrypt->setSalt($user->getSalt());
+//                     return $bcrypt->verify($password, $user->getPassword());
+//                 }
+//             ),
+//         ),
     ),
 );

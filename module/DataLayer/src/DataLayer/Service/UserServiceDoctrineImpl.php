@@ -3,24 +3,34 @@
 namespace DataLayer\Service;
 
 use DataLayer\Entity\User;
+use Zend\Crypt\Password\PasswordInterface;
 
 class UserServiceDoctrineImpl implements UserServiceInterface {
     
     protected $em;
     protected $saltProvider;
-    protected $hashService;
+    protected $passwordService;
     protected $repository;
     
     public function save($user) {
         $plainPassword = $user->getPlainPassword();
         if (false === empty($plainPassword)) {
             $user->setSalt($this->getSaltProvider()->getSalt());
-            $this->getHashService()->setSalt($user->getSalt());
-            $user->setPassword($this->getHashService()->create($plainPassword));
+            $this->getPasswordService()->setSalt($user->getSalt());
+            $user->setPassword($this->getPasswordService()->create($plainPassword));
             $user->setPlainPassword('');
         }
         $this->em->persist($user);
         $this->em->flush();
+    }
+    
+    public function findOneBy($params) {
+        return $this->getRepository()->findOneBy($params);
+    }
+    
+    public function verifyPassword($user, $password) {
+        $this->getPasswordService()->setSalt($user->getSalt());
+        return $this->getPasswordService()->verify($password, $user->getPassword());
     }
     
     public function setRepository($repository) {
@@ -47,11 +57,11 @@ class UserServiceDoctrineImpl implements UserServiceInterface {
         return $this->saltProvider;
     }
     
-    public function setHashService($hashService) {
-        $this->hashService = $hashService;
+    public function setPasswordService(PasswordInterface $passwordService) {
+        $this->passwordService = $passwordService;
     }
     
-    public function getHashService() {
-        return $this->hashService;
+    public function getPasswordService() {
+        return $this->passwordService;
     }
 }
